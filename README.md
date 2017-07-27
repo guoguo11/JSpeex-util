@@ -85,3 +85,46 @@ mac系统:
 
 ## 参考
 
+
+## 常见问题
+> 1.linux 生成动态库时提示relocation R_X86_64_32 against `.rodata' can not be used when making a shared object;
+
+由于系统是AMD64位的，所以需要在编译的时候添加 -fPIC 选项
+
+解决方法:
+
+例如:
+
+gcc -c -fPIC head.c
+
+or
+
+g++ -c -fPIC head.cpp 生成head.o
+
+g++ -fpic -shared -o libfun.so head.o 
+
+> 缺少动态连接库.so--cannot open shared object file: No such file or directory
+总结下来主要有3种方法：
+1. 用ln将需要的so文件链接到/usr/lib或者/lib这两个默认的目录下边
+
+```
+ln -s /where/you/install/lib/*.so /usr/lib
+sudo ldconfig
+```
+
+2.修改LD_LIBRARY_PATH
+
+```
+export LD_LIBRARY_PATH=/where/you/install/lib:$LD_LIBRARY_PATH
+sudo ldconfig
+```
+
+
+3.修改/etc/ld.so.conf，然后刷新
+```
+vim /etc/ld.so.conf
+增加一行 include /where/you/install/lib
+
+sudo ldconfig
+```
+
