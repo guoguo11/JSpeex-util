@@ -2,7 +2,7 @@
 功能介绍：PC端将.speex文件解码为*.wav文件
 
 ### 环境：
-1. MAC OS 10.12.5/Linux
+1. MAC OS 10.12.5/Linux ubuntu
 2. Xcode 
 3. Gcc
 4. JDK 1.8
@@ -80,11 +80,6 @@ mac系统:
 ./resources/a.speex
 ./resources/b.speex
 
-## 说明
->本项目的目的为学习测试用，若有侵权行为，请联系作者guoshuyun@zixunfan.com
-
-## 参考
-
 
 ## 常见问题
 > 1.linux 生成动态库时提示relocation R_X86_64_32 against `.rodata' can not be used when making a shared object;
@@ -127,4 +122,13 @@ vim /etc/ld.so.conf
 
 sudo ldconfig
 ```
+
+
+
+## 参考
+1. linux下动态库的生成和链接 http://blog.csdn.net/xiaqunfeng123/article/details/51301731
+
+
+## 说明
+>本项目的目的为学习测试用，若有侵权行为，请联系作者微信号：ihic99(彩虹天堂)
 
